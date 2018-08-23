@@ -9,7 +9,6 @@ IDA
 mount -o rw,remount -t yaffs2 /dev/block/mtdblock3 /system
 重新挂载（这个语句重新挂载了/system目录）
 如需要修改其他目录亦需要执行对应语句
-
 然后再chmod修改相应目录（本语句对应/system）权限
 - 在权限正确的情况下。设备上的文件路径普通权限可能无法直接写入，如果你的设备已经 root 过，可以先 adb push /path/on/pc /sdcard/filename，然后 adb shell 和 su 在 adb shell 里获取 root 权限后，cp /sdcard/filename /path/on/device
 
@@ -30,7 +29,7 @@ adb forward tcp:8000 jdwp:xxx
 jdb -connect com.sun.jdi.SocketAttach:hostname=127.0.0.1,port=8000
 or 
 jdb -attach localhost:8700
--通过IDA调试的时候，也需要先指定双方的调试端口
+- 通过IDA调试的时候，也需要先指定双方的调试端口
 android_server即为手机端的服务器，先运行之（root权限）
 然后
 adb forward tcp:23946 tcp:23946
